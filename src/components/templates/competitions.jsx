@@ -1,6 +1,6 @@
 import React from 'react';
 import CompetitionsList from "../organisms/competitions";
 
-const CompetitionsTemplate = () => <CompetitionsList/>
+const CompetitionsTemplate = props => <CompetitionsList {...props}/>
 
 export default CompetitionsTemplate

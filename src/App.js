@@ -1,21 +1,22 @@
 // @flow
 import React, {Component} from 'react';
 import './App.css';
+import store from './store';
 import Competitions from "./components/pages/competitions";
-import store from './store/'
-import {fetchCompetitions} from "./actions/competitions";
+import {Provider} from 'react-redux'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 type Props = {};
 
 class App extends Component<Props> {
 
-    componentDidMount() {
-        store.dispatch(fetchCompetitions())
-    }
-
     render() {
         return (
-            <Competitions/>
+            <Provider store={store}>
+                <Router>
+                    <Route path="/competitions" component={Competitions}/>
+                </Router>
+            </Provider>
         );
     }
 }

@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
 import CompetitionsTemplate from "../templates/competitions";
+import store from "../../store";
+import {fetchCompetitions} from "../../actions/competitions";
 
-export default class Competitions extends Component {
+class Competitions extends Component {
     componentDidMount(): void {
-
+        store.dispatch(fetchCompetitions())
     }
 
     render() {
-        return <CompetitionsTemplate/>
+        return <CompetitionsTemplate competitions={this.props.competitions}/>
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        competitions: state.competitions
+    }
+}
+
+export default connect(mapStateToProps)(Competitions)

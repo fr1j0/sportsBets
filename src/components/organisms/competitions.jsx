@@ -1,6 +1,4 @@
-import React from 'react';
-const CompetitionsList = () => {
-    return <h1>Competitions list</h1>
-}
+const CompetitionsList = props =>
+    props.competitions.map(competition => competition.name)
 
 export default CompetitionsList
