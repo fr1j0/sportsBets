@@ -14,7 +14,7 @@ class App extends Component<Props> {
         return (
             <Provider store={store}>
                 <Router>
-                    <Route path="/competitions" component={Competitions}/>
+                    <Route path="/" component={Competitions}/>
                 </Router>
             </Provider>
         );
