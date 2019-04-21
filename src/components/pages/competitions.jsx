@@ -10,7 +10,9 @@ class Competitions extends Component {
     }
 
     render() {
-        return <CompetitionsTemplate competitions={this.props.competitions}/>
+        return <div>
+            <CompetitionsTemplate competitions={this.props.competitions}/>
+        </div>
     }
 }
 
