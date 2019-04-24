@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import CompetitionsTemplate from "../templates/competitions";
-import store from "../../store";
 import {fetchCompetitions} from "../../actions/competitions";
 
 class Competitions extends Component {
     componentDidMount(): void {
-        store.dispatch(fetchCompetitions())
+        this.props.dispatch(fetchCompetitions())
     }
 
     render() {
