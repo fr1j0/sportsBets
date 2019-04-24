@@ -7,3 +7,7 @@ export const COMPETITIONS = {
 export const DRAWER = {
     TOGGLE: 'DRAWER_TOGGLE'
 }
+
+export const SELECTIONS = {
+    TOGGLE: 'SELECTIONS_ADD'
+}

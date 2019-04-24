@@ -70,7 +70,9 @@ const CompetitionsList = props => {
                                         {
                                             market.selections.map(selection =>
                                                 <Button variant="outlined" color="primary"
-                                                        className={classes.marketButton}>
+                                                        className={classes.marketButton}
+                                                        onClick={() => props.toggleSelection(market.id, selection.id)}
+                                                >
                                                     <p>{selection.name}</p>
                                                     <p>{selection.price}</p>
                                                 </Button>

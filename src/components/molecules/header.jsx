@@ -13,7 +13,8 @@ const styles = {
         flexGrow: 1,
     },
     toolBarButtons: {
-        textAlign: "right"
+        justifyContent: 'flex-end',
+        paddingRight: 0
     },
     menuButton: {
         marginLeft: -18,
