@@ -39,7 +39,11 @@ const styles = {
                 margin: 0
             }
         }
-    }
+    },
+    marketButtonSelected: {
+        backgroundColor: 'green',
+        color: 'white'
+    },
 };
 
 
@@ -61,16 +65,21 @@ const CompetitionsList = props => {
                     <Divider/>
                     <CardContent className={classes.cardContent}>
                         {
-                            competition.markets.map((market, index) => {
-                                return <div className={classes.market}>
+                            competition.markets.map((market, index) => <div className={classes.market}>
                                     <Typography className={classes.marketTitle}>
                                         {market.name}
                                     </Typography>
                                     <div className={classes.buttonsContainer}>
                                         {
                                             market.selections.map(selection =>
-                                                <Button variant="outlined" color="primary"
-                                                        className={classes.marketButton}
+                                                <Button variant="outlined"
+                                                        color="primary"
+                                                        classes={{
+                                                            root: classes.marketButton,
+                                                            outlinedPrimary: props.selections[market.id] === selection.id ?
+                                                                classes.marketButtonSelected :
+                                                                null
+                                                        }}
                                                         onClick={() => props.toggleSelection(market.id, selection.id)}
                                                 >
                                                     <p>{selection.name}</p>
@@ -81,7 +90,7 @@ const CompetitionsList = props => {
                                     </div>
                                     {index < competition.markets.length - 1 ? <Divider/> : null}
                                 </div>
-                            })
+                            )
                         }
                     </CardContent>
                 </Card>
@@ -92,6 +101,7 @@ const CompetitionsList = props => {
 
 CompetitionsList.propTypes = {
     classes: PropTypes.object.isRequired,
+    selections: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(CompetitionsList)

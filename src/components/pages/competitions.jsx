@@ -6,7 +6,6 @@ import {fetchCompetitions, toggleSelection} from "../../actions/competitions";
 class Competitions extends Component {
     toggleSelection(marketId, selectionId) {
         this.props.dispatch(toggleSelection(marketId, selectionId))
-        console.log('toggleSelection', marketId, selectionId)
     }
 
     componentDidMount(): void {
@@ -17,6 +16,7 @@ class Competitions extends Component {
         return <div>
             <CompetitionsTemplate
                 competitions={this.props.competitions}
+                selections={this.props.selections}
                 toggleSelection={this.toggleSelection.bind(this)}
             />
         </div>
@@ -25,7 +25,8 @@ class Competitions extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        competitions: state.competitions
+        competitions: state.competitions,
+        selections: state.selections,
     }
 }
 
