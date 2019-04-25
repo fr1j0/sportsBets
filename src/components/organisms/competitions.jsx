@@ -59,42 +59,46 @@ const CompetitionsList = props => {
         justify='center'
     >
         {
-            props.competitions.map(competition => <Grid key={competition.id} item>
-                <Card>
-                    <CardHeader title={competition.name} className={classes.cardTitle}/>
-                    <Divider/>
-                    <CardContent className={classes.cardContent}>
-                        {
-                            competition.markets.map((market, index) => <div className={classes.market}>
-                                    <Typography className={classes.marketTitle}>
-                                        {market.name}
-                                    </Typography>
-                                    <div className={classes.buttonsContainer}>
-                                        {
-                                            market.selections.map(selection =>
-                                                <Button variant="outlined"
-                                                        color="primary"
-                                                        classes={{
-                                                            root: classes.marketButton,
-                                                            outlinedPrimary: props.selections[market.id] === selection.id ?
-                                                                classes.marketButtonSelected :
-                                                                null
-                                                        }}
-                                                        onClick={() => props.toggleSelection(market.id, selection.id)}
-                                                >
-                                                    <p>{selection.name}</p>
-                                                    <p>{selection.price}</p>
-                                                </Button>
-                                            )
-                                        }
+            props.competitions.map((competition, compIndex) =>
+                <Grid item key={compIndex}>
+                    <Card>
+                        <CardHeader title={competition.name} className={classes.cardTitle}/>
+                        <Divider/>
+                        <CardContent className={classes.cardContent}>
+                            {
+                                competition.markets.map((market, marketIndex) => <div className={classes.market}
+                                                                                      key={marketIndex}>
+                                        <Typography className={classes.marketTitle}>
+                                            {market.name}
+                                        </Typography>
+                                        <div className={classes.buttonsContainer}>
+                                            {
+                                                market.selections.map((selection, btnIndex) =>
+                                                    <Button variant="outlined"
+                                                            color="primary"
+                                                            classes={{
+                                                                root: classes.marketButton,
+                                                                outlinedPrimary: props.selections[market.id] === selection.id ?
+                                                                    classes.marketButtonSelected :
+                                                                    null
+                                                            }}
+                                                            onClick={() => props.toggleSelection(market.id, selection.id)}
+                                                            key={btnIndex}
+                                                    >
+                                                        <p>{selection.name}</p>
+                                                        <p>{selection.price}</p>
+                                                    </Button>
+                                                )
+                                            }
+                                        </div>
+                                        {marketIndex < competition.markets.length - 1 ? <Divider/> : null}
                                     </div>
-                                    {index < competition.markets.length - 1 ? <Divider/> : null}
-                                </div>
-                            )
-                        }
-                    </CardContent>
-                </Card>
-            </Grid>)
+                                )
+                            }
+                        </CardContent>
+                    </Card>
+                </Grid>
+            )
         }
     </Grid>
 }

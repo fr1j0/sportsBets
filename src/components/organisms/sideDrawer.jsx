@@ -35,9 +35,6 @@ const styles = {
 
 const SideDrawer = props => {
     const {classes} = props;
-    const handleDrawerClose = () => {
-        props.dispatch(toggleDrawer())
-    };
 
     return <Drawer
         className={classes.drawer}
@@ -49,7 +46,7 @@ const SideDrawer = props => {
         }}
     >
         <div className={classes.drawerHeader}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton onClick={() => props.dispatch(toggleDrawer())}>
                 <CloseIcon/>
             </IconButton>
         </div>
@@ -63,10 +60,10 @@ const SideDrawer = props => {
             justify='center'
         >
             {
-                Object.entries(props.selections).map(entry => {
+                Object.entries(props.selections).map((entry, index) => {
                         const competition = getCompetitionBySelectionId(props.competitions, entry[0], entry[1]);
-                        return <Fragment>
-                            <Grid key={entry[0]} item className={classes.gridItem}>
+                        return <Fragment key={index}>
+                            <Grid item className={classes.gridItem}>
                                 <p>{`${competition.markets.selections.name} ${competition.markets.name}`}</p>
                                 <p>{competition.markets.selections.price}</p>
                                 <Button
@@ -83,7 +80,6 @@ const SideDrawer = props => {
                     }
                 )
             }
-
         </Grid>
     </Drawer>
 };
