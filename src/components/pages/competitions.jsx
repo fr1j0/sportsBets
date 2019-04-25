@@ -1,9 +1,16 @@
+// @flow
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import CompetitionsTemplate from "../templates/competitions";
 import {fetchCompetitions, toggleSelection} from "../../actions/competitions";
 
-class Competitions extends Component {
+type Props = {
+    competitions: Array<Object>,
+    selections: Object,
+    dispatch: Function
+}
+
+class Competitions extends Component<Props> {
     toggleSelection(marketId, selectionId) {
         this.props.dispatch(toggleSelection(marketId, selectionId))
     }

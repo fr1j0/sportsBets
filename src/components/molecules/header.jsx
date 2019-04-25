@@ -1,12 +1,15 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+import {AppBar, IconButton, Toolbar} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {toggleDrawer} from "../../actions/drawer";
 import {connect} from "react-redux";
+
+type Props = {
+    classes: Object,
+    dispatch: Function
+};
 
 const styles = {
     root: {
@@ -22,7 +25,7 @@ const styles = {
     },
 };
 
-const Header = props => {
+const Header = (props: Props) => {
     const {classes} = props;
     const toggleSideMenu = () => {
         props.dispatch(toggleDrawer())
@@ -41,9 +44,5 @@ const Header = props => {
         </div>
     );
 }
-
-Header.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
 export default connect()(withStyles(styles)(Header))

@@ -1,3 +1,4 @@
+// @flow
 import React, {Fragment} from 'react';
 import {Button, Drawer, Grid, Divider, IconButton} from "@material-ui/core";
 import {withStyles} from '@material-ui/core/styles';
@@ -6,6 +7,14 @@ import {connect} from "react-redux";
 import {toggleDrawer} from "../../actions/drawer";
 import {toggleSelection} from "../../actions/competitions";
 import {getCompetitionBySelectionId} from "../../utils/collections";
+
+type Props = {
+    drawerOpen: boolean,
+    competitions: Array<Object>,
+    selections: Object,
+    dispatch: Function,
+    classes: Object,
+}
 
 const styles = {
     drawer: {
@@ -33,7 +42,7 @@ const styles = {
     }
 }
 
-const SideDrawer = props => {
+const SideDrawer = (props: Props) => {
     const {classes} = props;
 
     return <Drawer

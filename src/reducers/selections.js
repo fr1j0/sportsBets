@@ -1,6 +1,7 @@
+// @flow
 import {SELECTIONS} from '../consts/actionTypes'
 
-export default function selections(state = {}, action) {
+export default function selections(state: Object = {}, action: Object) {
     switch (action.type) {
         case SELECTIONS.TOGGLE:
             let newState = {...state}

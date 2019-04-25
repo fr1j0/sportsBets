@@ -1,7 +1,14 @@
+// @flow
 import React from 'react';
 import {Button, Card, CardContent, CardHeader, Divider, Grid, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+
+type Props = {
+    classes: Object,
+    selections: Object,
+    competitions: Array<Object>,
+    toggleSelection: Function
+};
 
 const styles = {
     cardHeader: {
@@ -47,7 +54,7 @@ const styles = {
 };
 
 
-const CompetitionsList = props => {
+const CompetitionsList = (props: Props) => {
     const {classes} = props;
     return <Grid
         container
@@ -102,10 +109,5 @@ const CompetitionsList = props => {
         }
     </Grid>
 }
-
-CompetitionsList.propTypes = {
-    classes: PropTypes.object.isRequired,
-    selections: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(CompetitionsList)

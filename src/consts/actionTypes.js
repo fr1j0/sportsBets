@@ -1,13 +1,14 @@
-export const COMPETITIONS = {
+// @flow
+export const COMPETITIONS: Object = {
     FETCH: 'COMPETITIONS_FETCH',
     PENDING: 'COMPETITIONS_FETCH_PENDING',
     FULFILLED: 'COMPETITIONS_FETCH_FULFILLED',
 }
 
-export const DRAWER = {
+export const DRAWER: Object = {
     TOGGLE: 'DRAWER_TOGGLE'
 }
 
-export const SELECTIONS = {
+export const SELECTIONS: Object = {
     TOGGLE: 'SELECTIONS_ADD'
 }
