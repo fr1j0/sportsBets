@@ -1,6 +1,5 @@
 // @flow
 import React, {Component} from 'react';
-import './App.css';
 import store from './store';
 import Competitions from "./components/pages/competitions";
 import {Provider} from 'react-redux'
