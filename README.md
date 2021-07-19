@@ -2,14 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Tech decissions
+## Tech stack
 I've used __Redux__ to centralize the state and logic of the application and __redux-promise-middleware__ to handle async action creators. __Logger__ middleware helps tracking dispatched actions.
 
 For the UI I've used __Atomic Design__ for the sake of scalability.
 
 Rest of the components are grouped by functionality.
-
-Just added a few unit tests, don't want to delay this delivery for longer so I couldn't add any integration nor e2e tests.
 
 Routing is centralized in App file.
 
